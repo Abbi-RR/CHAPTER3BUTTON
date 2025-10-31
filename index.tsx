@@ -1,31 +1,81 @@
-import { ReactNode } from "react"
-type Prop = {
-   children: ReactNode
-   title: string
-}
+import { ReactNode } from "react";
 
-export const AlertInfo = ({ children, title }: Prop) => {
-   return (
-       <div className="my-2 bg-sky-200 rounded-md text-sky-800 px-4 py-3 shadow-md border-l-4 border-sky-800" role="alert">
-           <div className="flex gap-1">
-               <div>
-                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
-                       <path strokeLinecap="round" strokeLinejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
-                   </svg>
-               </div>
-               <div>
-                   <p className="font-bold text-lg">{title}</p>
+type Props = {
+  children: ReactNode;
+  type: "button" | "submit" | "reset";
+  onClick?: () => void;
+  className?: string;
+};
+
+export const ButtonSuccess = ({ children, type, onClick, className }: Props) => {
+  return (
+    <button
+      className={`text-sm bg-green-600 text-white rounded-md py-2 px-4 hover:bg-green-700 font-bold ${className}`}
+      type={type}
+      onClick={() => onClick && onClick()}
+    >
+      {children}
+    </button>
+  );
+};
+
+export const ButtonWarning = ({ children, type, onClick, className }: Props) => {
+  return (
+    <button
+      className={`text-sm bg-yellow-500 text-white rounded-md py-2 px-4 hover:bg-yellow-600 font-bold ${className}`}
+      type={type}
+      onClick={() => onClick && onClick()}
+    >
+      {children}
+    </button>
+  );
+};
+
+export const ButtonDanger = ({ children, type, onClick, className }: Props) => {
+  return (
+    <button
+      className={`text-sm bg-red-600 text-white rounded-md py-2 px-4 hover:bg-red-700 font-bold ${className}`}
+      type={type}
+      onClick={() => onClick && onClick()}
+    >
+      {children}
+    </button>
+  );
+};
+
+export const ButtonOutlineSuccess = ({ children, type, onClick, className }: Props) => {
+  return (
+    <button
+      className={`text-sm bg-red-600 text-white rounded-md py-2 px-4 hover:bg-red-700 font-bold ${className}`}
+      type={type}
+      onClick={() => onClick && onClick()}
+    >
+      {children}
+    </button>
+  );
+};
+
+export const ButtonOutlineDanger = ({ children, type, onClick, className }: Props) => {
+  return (
+    <button
+      className={`text-sm bg-white text-green-500 border border-green-500 rounded-md py-2 px-4 hover:bg-green-500 hover:text-white font-bold ${className}`}
+      type={type}
+      onClick={() => onClick && onClick()}
+    >
+      {children}
+    </button>
+  );
+};
 
 
-                   <div className="text-sm">
-                       {children}
-                   </div>
-               </div>
-           </div>
-
-
-       </div>
-
-
-   )
-}
+export const ButtonOutlineInfo = ({ children, type, onClick, className }: Props) => {
+  return (
+    <button
+      className={`text-sm bg-white text-blue-500 border border-blue-500 rounded-md py-2 px-4 hover:bg-blue-500 hover:text-white font-bold ${className}`}
+      type={type}
+      onClick={() => onClick && onClick()}
+    >
+      {children}
+    </button>
+  );
+};
